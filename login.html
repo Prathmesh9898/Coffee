@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Login</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+/* Login Box */
+.login-box{
+    background: rgba(0,0,0,0.75);
+    padding:45px 40px;
+    border-radius:18px;
+    width:320px;
+    text-align:center;
+    color:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px); /* 🔥 glass effect */
+}
+
+.login-box h2{
+    margin-bottom:25px;
+    font-size:22px;
+}
+
+/* Input fields */
+.input-box{
+    margin:12px 0;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+/* 🔥 focus effect */
+.input-box input:focus{
+    box-shadow:0 0 6px #c59d5f;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#c59d5f;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#a67c3d;
+    transform: scale(1.03); /* 🔥 smooth hover */
+}
+
+/* Extra text */
+.extra{
+    margin-top:18px;
+    font-size:14px;
+}
+
+.extra a{
+    color:#c59d5f;
+    text-decoration:none;
+}
+
+.extra a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>☕ Coffee Login</h2>
+    
+
+<form onsubmit="return loginUser()">
+                <div class="input-box">
+    <input type="text" id="username" placeholder="Username">
+</div>
+
+<div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="eye" onclick="togglePassword('password')">👁</span>
+    </div>
+
+<button type="submit">Login</button>
+
+        <div class="extra">
+            <p>Don't have account? <a href="register.html">Sign Up</a></p>
+        </div>
+    </form>
+</div>
+<script>
+function loginUser(){
+
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.status === "success"){
+            
+    alert("Login Successful ✅");
+
+    // ✅ LOGIN SAVE karo
+    localStorage.setItem("isLoggedIn", "true");
+
+    // 🔥 redirect
+    window.location.href = "menu.html";
+
+} else {
+    alert(data.message);
+}
+    });
+
+    return false;
+    
+}
+</script>
+</body>
+</html>

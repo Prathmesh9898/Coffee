@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Contact</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/* -------- NAVBAR -------- */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+}
+
+.logo span{
+    margin-right:8px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#ffb347;
+}
+
+.navbar{
+    background:#5b1a1a;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 80px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+.nav-links li{
+    cursor:pointer;
+}
+
+.nav-links li:hover{
+    color:#f4c430;
+}
+
+/* -------- CONTACT SECTION -------- */
+.contact{
+    padding:70px 100px;
+}
+
+.contact h2{
+    text-align:center;
+    font-size:32px;
+    letter-spacing:2px;
+}
+
+.underline{
+    width:70px;
+    height:4px;
+    background:#f4a300;
+    margin:12px auto 50px auto;
+    border-radius:5px;
+}
+
+.contact-container{
+    display:flex;
+    justify-content:space-between;
+    gap:80px;
+}
+
+/* Left Info */
+.contact-info{
+    flex:1;
+}
+
+.contact-info p{
+    margin-bottom:20px;
+    color:#444;
+    font-size:15px;
+}
+
+.contact-info i{
+    margin-right:10px;
+    color:#5b1a1a;
+}
+
+/* Right Form */
+.contact-form{
+    flex:1;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.contact-form textarea{
+    height:130px;
+    resize:none;
+}
+
+.contact-form button{
+    background:#5b1a1a;
+    color:white;
+    padding:12px 30px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#7a2323;
+}
+
+/* -------- FOOTER -------- */
+footer{
+    background:#222;
+    color:white;
+    padding:20px 80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+.social-icons i{
+    margin:0 10px;
+    cursor:pointer;
+}
+
+.footer-links span{
+    margin-left:20px;
+    cursor:pointer;
+}
+
+/* -------- RESPONSIVE -------- */
+@media(max-width:900px){
+    .contact-container{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">☕ Coffee</div>
+    <ul class="nav-links">
+        <li><a href="1.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+                  <li><a href="testimonial.html">Testimonials</a></li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+
+        
+    </ul>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="contact">
+    <h2>CONTACT US</h2>
+    <div class="underline"></div>
+
+    <div class="contact-container">
+
+        <!-- Left Side -->
+        <div class="contact-info">
+            <p><i class="fa-solid fa-location-dot"></i>123 Campsite Avenue, Wilderness, CA 98765</p>
+            <p><i class="fa-solid fa-envelope"></i>info@coffeeshopwebsite.com</p>
+            <p><i class="fa-solid fa-phone"></i>(123) 456-78909</p>
+            <p><i class="fa-regular fa-clock"></i>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            <p><i class="fa-regular fa-clock"></i>Saturday: 10:00 AM - 3:00 PM</p>
+            <p><i class="fa-regular fa-clock"></i>Sunday: Closed</p>
+            <p><i class="fa-solid fa-globe"></i>www.codingnepalweb.com</p>
+        </div>
+
+       <div class="contact-form">
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="Your email" required>
+        <textarea id="message" placeholder="Your message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div>© 2024 Coffee Shop</div>
+
+    <div class="social-icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+    </div>
+
+    <div class="footer-links">
+        <span>Privacy policy</span>
+        <span>Refund policy</span>
+    </div>
+</footer>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+});
+</script>
+<script>
+function checkLogin() {
+    let user = localStorage.getItem("isLoggedIn");
+
+    if (user !== "true") {
+        alert("Pehle login karo!");
+        window.location.href = "login.html";
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>

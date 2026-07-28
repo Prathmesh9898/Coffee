@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Successful</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+
+    background: url("wallpaper1.png") no-repeat center center/cover;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+.box{
+    background: rgba(0,0,0,0.8);
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    width:350px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    margin:5px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.home-btn{
+    background:#c59d5f;
+    color:white;
+}
+
+.logout-btn{
+    background:#ff4d4d;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+    <h1>🎉 Order Successful!</h1>
+    <p>Thank you for choosing our Coffee Shop ☕</p>
+
+<p>
+We truly appreciate your visit and your order has been successfully placed. 
+Our team is already preparing your delicious items with care and quality ingredients.
+</p>
+
+<p>
+You will receive your order shortly. We hope you enjoy your meal and we look forward to serving you again!
+</p>
+
+<p>
+Have a great day ahead 😊
+</p>
+    
+
+    <button class="home-btn" onclick="goHome()">🏠 Go to Home</button>
+    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+</div>
+
+<script>
+function goHome(){
+    window.location.href = "1.html"; // home page
+}
+
+function logout(){
+    localStorage.clear();   // 🔥 yaha add karo
+
+    alert("Logged out successfully ✅");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

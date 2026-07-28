@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Section</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#1e1e1e;
+}
+
+.price{
+    color:#ff9f1c;
+    font-size:18px;
+    margin-top:10px;
+}
+
+.menu-buttons{
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.cart-btn{
+    background:#ff9f1c;
+    border:none;
+    padding:8px 16px;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.cart-btn:hover{
+    background:#e68900;
+}
+
+.order-btn{
+    background:transparent;
+    border:2px solid #ff9f1c;
+    padding:8px 16px;
+    color:#ff9f1c;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.order-btn:hover{
+    background:#ff9f1c;
+    color:white;
+}
+
+.cart-box{
+    position:fixed;
+    right:20px;
+    top:100px;
+    width:120px;
+    height: 50px;
+    background:white;
+    color:black;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cart-box h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+#cart-items{
+    list-style:none;
+    padding:0;
+}
+
+#cart-items li{
+    font-size:14px;
+    margin-bottom:8px;
+}
+/* -------- NAVBAR -------- */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+}
+
+.logo span{
+    margin-right:8px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#ffb347;
+}
+
+.navbar{
+    background:#803e3e;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 80px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+.nav-links li{
+    cursor:pointer;
+}
+
+.nav-links li:hover{
+    color:#f4c430;
+}
+/* Menu Section */
+.menu{
+    padding:100px 8%;
+    background:#1e1e1e;
+}
+
+.menu-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:60px;
+    text-align:center;
+}
+
+.menu-item img{
+    width:220px;
+    height:auto;
+    margin-bottom:20px;
+}
+
+.menu-item h3{
+    color:white;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.menu-item p{
+    color:#bbb;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* Responsive */
+@media(max-width:992px){
+    .menu-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .menu-container{
+        grid-template-columns:1fr;
+    }
+}
+.next-btn-container{
+    display:flex;
+    justify-content:center;
+    padding:20px 8%;
+}
+
+.next-btn{
+    background:#5fee33;
+    color:white;
+    border:none;
+    padding:20px 30px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.next-btn:hover{
+    background:#e68900;
+    transform: translateY(-2px); /* smooth effect */
+}
+</style>
+</head>
+
+<body>
+
+    <script>
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+if(!isLoggedIn){
+    alert("Please login first!");
+    window.location.href = "login.html";
+}
+</script>
+
+    <!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">☕ Coffee</div>
+    <ul class="nav-links">
+        <li><a href="1.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+                          <li><a href="testimonial.html">Testimonials</a></li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        
+    </ul>
+</div>
+
+
+<section class="menu">
+    <div class="menu-container" id="menu-container">
+
+        <!--item1-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="hot beverage2.png" alt="">
+    <h3>Hot Beverages</h3>
+    <p>Wide range of Steaming hot coffee to make you fresh and light.</p>
+
+    <h4 class="price">₹80.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('Hot Beverages', 80.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+        
+
+        <!--item2-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="cold beverage.png" alt="">
+    <h3>Cold Beverages</h3>
+    <p>Creamy and frothy cold coffee to make you cool.</p>
+
+    <h4 class="price">₹45.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('cold Beverages', 45.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+        
+        <!--item3-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="refresh.png" alt="">
+    <h3>Refreshment</h3>
+    <p>Fruit and icy refreshing drink to make feel refresh.</p>
+    <h4 class="price">₹30.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('Refreshment', 30.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+        
+
+        <!--item4-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="burger and frenchfries.png" alt="">
+    <h3>Burger and fries</h3>
+    <p>Quick bites with crispy fries and juicy burgers.</p>
+    <h4 class="price">₹120.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('Burger and fries', 120.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+
+        <!--item5-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="desertdrink.png" alt="">
+    <h3>Deserts</h3>
+    <p>Sweet and delicious desserts to complete your meal.</p>
+    <h4 class="price">₹50.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('desertdrink', 50.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+        <!--item6-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="combo.png" alt="">
+    <h3>Special combo</h3>
+    <p>Healthy and tasty sandwiches for every mood.</p>
+    <h4 class="price">₹110.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('Special combo', 110.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+<!--item7-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="pizza.png" alt="">
+    <h3>pizza</h3>
+    <p>Cheesy and delicious pizza with fresh toppings.</p>
+    <h4 class="price">₹70.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('Pizza', 70.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+<!--item8-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="sandwich.png" alt="">
+    <h3>sandwiches</h3>
+    <p>Fresh grilled sandwiches packed with tasty fillings.</p>
+    <h4 class="price">₹65.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('sandwich', 65.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+
+<!--item9-->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="pasta.png" alt="">
+    <h3>Pasta</h3>
+    <p>Creamy and flavorful pasta cooked with rich sauces.</p>
+    <h4 class="price">₹55.00</h4>
+
+    <div class="menu-buttons">
+        <button class="cart-btn" onclick="addToCart('pasta',55.00)">Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+    </div>
+</div>
+
+<!-- Item 10 -->
+<div class="menu-item">
+        <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="icecream.png" alt="">
+    <h3>Ice Cream</h3>
+    <p>Cold and sweet ice cream available in many flavors.</p>
+        <h4 class="price">₹40.00</h4>
+        <div class="menu-buttons"></div>
+   <button class="cart-btn" onclick="addToCart('icecream',40.00)">Add to Cart</button>
+
+     <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+</div>
+
+<!-- Item 11 -->
+<div class="menu-item">
+            <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="donut.png" alt="">
+    <h3>Donuts</h3>
+    <p>Soft and fluffy donuts topped with chocolate glaze.</p>
+    <h4 class="price">₹30.00</h4>
+        <div class="menu-buttons"></div>
+   <button class="cart-btn" onclick="addToCart('donuts',30.00)">Add to Cart</button>
+        <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+</div>
+
+<!-- Item 12 -->
+<div class="menu-item">
+    <div class="cart-box">
+    <h2>Your Cart</h2><ul id="cart-items"></ul></div>
+
+    <img src="cake.png" alt="">
+    <h3>Cakes</h3>
+    <p>Fresh baked cakes perfect for every sweet craving.</p>
+        <h4 class="price">₹350.00</h4>
+
+    <div class="menu-buttons"></div>
+   <button class="cart-btn" onclick="addToCart('cake',350.00)">Add to Cart</button>
+        <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+
+</div>
+    </div>
+    
+</section>
+<div class="next-btn-container">
+    <button class="next-btn" onclick="goToGallery()">Next ➜</button>
+</div>
+<script>
+function addToCart(name, price) {
+
+    // UI me add karega
+    const cartItems = document.getElementById("cart-items");
+    const li = document.createElement("li");
+    li.textContent = name + " - ₹" + price;
+    cartItems.appendChild(li);
+
+    // Backend me bhejega
+    fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, price })
+    })
+    .then(res => res.text())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+}
+</script>
+
+
+<script>
+fetch("http://localhost:3000/menu")
+.then(res => res.json())
+.then(data => {
+
+    const container = document.getElementById("menu-container");
+
+    data.forEach(item => {
+        container.innerHTML += `
+            <div class="menu-item">
+                <h3>${item.name}</h3>
+                <h4 class="price">₹${item.price}</h4>
+
+                <div class="menu-buttons">
+                    <button class="cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                    <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+                </div>
+            </div>
+        `;
+    });
+
+});
+</script>
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    alert("⚠️ Please login first!");
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function goToGallery(){
+    window.location.href = "gallery.html";
+}
+</script>
+</body>
+</html>

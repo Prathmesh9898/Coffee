@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Coffee</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#5b1a1a;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+}
+
+.logo span{
+    margin-right:8px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#ffb347;
+}
+/* About Section */
+
+.about{
+    padding:80px 10%;
+}
+
+.about-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+}
+
+/* Image */
+
+.about-image img{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 10px 25px rgba(247, 239, 239, 0.2);
+}
+ 
+/* Content */
+
+.about-content{
+    max-width:500px;
+}
+
+.about-content h2{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.underline{
+    width:60px;
+    height:3px;
+    background:#fdfcfc;
+    margin:10px 0 20px;
+}
+
+.about-content p{
+    font-size:16px;
+    line-height:1.7;
+    color:#fdfafa;
+    margin-bottom:20px;
+}
+
+/* Social Icons */
+
+.social-icons a{
+    margin-right:15px;
+    font-size:18px;
+    color:#fcfafa;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.social-icons a:hover{
+    color:#c59d5f;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="navbar">
+    <div class="logo">
+        ☕ Coffee
+    </div>
+    <ul class="nav-links">
+        <li><a href="1.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="testimonial.html">Testimonials</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </div>
+    
+    <script>
+function checkLogin(event){
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if(!isLoggedIn){
+        event.preventDefault();
+        alert("Login required!");
+        window.location.href = "login.html";
+    }
+}
+</script>
+
+    
+
+<section class="about">
+    <div class="about-container">
+        
+
+        <!-- Left Image -->
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Coffee">
+        </div>
+
+        <!-- Right Content -->
+        <div class="about-content">
+            <h2>ABOUT US</h2>
+            <div class="underline"></div>
+
+            <p>
+                At Coffee House in Berndorf, Germany, we pride ourselves on being a 
+                go-to destination for coffee lovers and conversation seekers alike. 
+                We're dedicated to providing an exceptional coffee experience in a 
+                cozy and inviting atmosphere, where guests can relax, unwind, and 
+                enjoy their time in comfort.
+            </p>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

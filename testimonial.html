@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Testimonials</title>
+
+<style>
+*{ 
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* -------- NAVBAR -------- */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+}
+
+.logo span{
+    margin-right:8px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#ffb347;
+}
+
+.navbar{
+    background:#5b1a1a;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 80px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+.nav-links li{
+    cursor:pointer;
+}
+
+.nav-links li:hover{
+    color:#f4c430;
+}
+
+
+/* Section */
+.testimonial-section{
+    text-align:center;
+    padding:70px 50px;
+}
+
+.testimonial-section h2{
+    font-size:32px;
+}
+
+.underline{
+    width:70px;
+    height:4px;
+    background:#f4a300;
+    margin:12px auto 50px auto;
+}
+
+/* Slider layout */
+.slider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+}
+
+.cards{
+    display:flex;
+    gap:40px;
+    overflow:hidden;
+    width:840px;
+}
+
+/* Card */
+.card{
+    width:260px;
+    text-align:center;
+    display:none;
+}
+
+.card img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    font-size:14px;
+    color:#555;
+}
+
+/* Arrows */
+.arrow{
+    font-size:40px;
+    cursor:pointer;
+    color:#3498db;
+}
+</style>
+</head>
+
+<body>
+
+    <script>
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+if(!isLoggedIn){
+    alert("Please login first!");
+    window.location.href = "login.html";
+}
+</script>
+
+    <!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">☕ Coffee</div>
+    <ul class="nav-links">
+        <li><a href="1.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+                          <li><a href="testimonial.html">Testimonials</a></li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+        
+    </ul>
+</div>
+
+
+<section class="testimonial-section">
+
+<h2>TESTIMONIALS</h2>
+<div class="underline"></div>
+
+<div style="display:flex;
+ justify-content:center;
+  align-items:center; 
+  gap:50px;">
+    <div style="background:#fff; padding:20px; border-radius:10px; width:300px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+
+    <h3 style="margin-bottom:15px;">Add Your Review</h3>
+
+    <input type="text" id="userName" placeholder="Your Name"
+    style="width:100%; padding:10px; margin-bottom:10px;">
+
+<input type="file" id="userImage" accept="image/*" capture="environment"
+style="width:100%; padding:10px; margin-bottom:10px;"
+    style="width:100%; padding:10px; margin-bottom:10px;">
+
+    <input type="text" id="userReview" placeholder="Your Review"
+    style="width:100%; padding:10px; margin-bottom:10px;">
+
+    <button onclick="addTestimonial()"
+    style="width:100%; 
+    padding:10px; 
+    background:#f4a300;
+     border:none;
+      color:white; 
+      cursor:pointer;">
+        Submit
+    </button>
+
+</div>
+<div class="arrow" onclick="prevSlide()">&#10094;</div>
+
+<div class="cards" id="cards">
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h3>James Wilson</h3>
+<p>"Great espresso blend! Smooth and bold flavor."</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
+<h3>Michael Brown</h3>
+<p>"Fantastic mocha flavor. Fresh and aromatic."</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<h3>Emily Harris</h3>
+<p>"Excellent quality! Highly recommend."</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/68.jpg">
+<h3>Sophia Taylor</h3>
+<p>"Absolutely love the cappuccino!"</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/men/60.jpg">
+<h3>Daniel Lee</h3>
+<p>"Best coffee shop experience."</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/21.jpg">
+<h3>Olivia Martin</h3>
+<p>"Fresh beans and great service."</p>
+</div>
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/men/71.jpg">
+    <h3>Ryan Clark</h3>
+    <p>"Amazing latte and very cozy atmosphere. Will definitely visit again!"</p>
+</div>
+
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/women/65.jpg">
+    <h3>Isabella Scott</h3>
+    <p>"The coffee tastes incredible! Fresh beans and wonderful service."</p>
+</div>
+
+</div>
+
+<div class="arrow" onclick="nextSlide()">&#10095;</div>
+
+</div>
+
+</section>
+
+<script>
+
+let start = 0;
+let cards = document.querySelectorAll(".card");
+let visible = 3;
+
+function showCards(){
+    cards.forEach(card => card.style.display = "none");
+
+    for(let i=start; i<start+visible; i++){
+        if(cards[i]){
+            cards[i].style.display = "block";
+        }
+    }
+}
+
+function nextSlide(){
+    if(start + visible < cards.length){
+        start++;
+        showCards();
+    }
+}
+
+function prevSlide(){
+    if(start > 0){
+        start--;
+        showCards();
+    }
+}
+
+showCards();
+
+</script>
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    alert("⚠️ Please login first!");
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function addTestimonial(){
+    let name = document.getElementById("userName").value;
+let file = document.getElementById("userImage").files[0];
+
+if(!file){
+    alert("Select image ❌");
+    return;
+}
+
+if(file.size > 2 * 1024 * 1024){
+    alert("Image size should be less than 2MB ❌");
+    return;
+}    let review = document.getElementById("userReview").value;
+
+    if(name === "" || review === "" || !file){
+        alert("Please fill all fields ❌");
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = function(){
+        let imageBase64 = reader.result;
+
+        fetch("http://localhost:3000/testimonial", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ 
+                name: name, 
+                image: imageBase64,
+                review: review 
+            })
+        })
+        .then(res => res.text())
+        .then(data => {
+            alert(data);
+            loadTestimonials();
+        })
+        .catch(err => {
+            console.log(err);
+            alert("Error ❌");
+        });
+    }
+
+    reader.readAsDataURL(file);
+}
+
+function loadTestimonials(){
+    fetch("http://localhost:3000/testimonial")
+    .then(res => res.json())
+    .then(data => {
+
+        let container = document.getElementById("cards");
+        container.innerHTML = "";
+
+        data.forEach(t => {
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+            card.innerHTML = `
+                <img src="${t.image}">
+                <h3>${t.name}</h3>
+                <p>"${t.review}"</p>
+            `;
+
+            container.appendChild(card);
+        });
+
+        cards = document.querySelectorAll(".card");
+        showCards();
+    });
+}
+loadTestimonials();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Coffee – Payment Method</title>
+
+<style>
+/* ===== Reset ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== Background ===== */
+body{
+    height:100vh;
+    background: linear-gradient(160deg,#1a0f14,#0e0e14);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+/* ===== Card Container ===== */
+.card{
+    width:360px;
+    background:#16161f;
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== Header ===== */
+.header{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.header .logo{
+    width:22px;
+    height:22px;
+    background:#ff5c73;
+    border-radius:50%;
+}
+
+.header h2{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* ===== Title ===== */
+.title{
+    text-align:center;
+    font-size:15px;
+    margin-bottom:16px;
+    color:#d2d2d2;
+}
+
+/* ===== Options Box ===== */
+.option-box{
+    background:#1f1f2a;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #2a2a35;
+}
+
+.option{
+    display:flex;
+    align-items:center;
+    padding:14px;
+    gap:12px;
+    cursor:pointer;
+    transition:.25s;
+    border-bottom:1px solid #2a2a35;
+}
+
+.option:last-child{
+    border-bottom:none;
+}
+
+.option:hover{
+    background:#2a2a35;
+}
+
+/* radio style */
+.option input{
+    accent-color:#ff5c73;
+    transform:scale(1.1);
+}
+
+.option span{
+    font-size:14px;
+    color:#eee;
+}
+
+/* ===== Continue Button ===== */
+.btn{
+    width:100%;
+    margin-top:18px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(90deg,#ff5c73,#d43a52);
+    color:white;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+/* ===== Back link ===== */
+.back{
+    text-align:center;
+    margin-top:12px;
+    font-size:13px;
+    color:#aaa;
+    cursor:pointer;
+}
+
+.back:hover{
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
+        <div class="logo"></div>
+        <h2>Coffee</h2>
+    </div>
+
+    <div class="title">Select Payment Method</div>
+
+    <div class="option-box">
+        
+
+        <label class="option">
+    <input type="radio" name="payment" value="card" checked>
+    <span>💳 Credit / Debit Card</span>
+</label>
+
+<label class="option">
+    <input type="radio" name="payment" value="paypal">
+    <span>🅿 PayPal</span>
+</label>
+
+<label class="option">
+    <input type="radio" name="payment" value="cod">
+    <span>💵 Cash on Delivery</span>
+</label>
+
+    </div>
+
+<button class="btn" onclick="goNext()">Continue</button>
+
+</div>
+<script>
+function goNext(){
+    let method = document.querySelector('input[name="payment"]:checked');
+
+    if(!method){
+        alert("Select payment method");
+        return;
+    }
+
+    if(method.value === "card"){
+        window.location.href = "card.html";
+    }
+    else if(method.value === "paypal"){
+        window.location.href = "paypal.html";
+    }
+    else{
+        window.location.href = "success.html";
+    }
+}</script>
+<script>
+function goNext(){
+    let method = document.querySelector('input[name="payment"]:checked');
+
+    if(!method){
+        alert("Select payment method");
+        return;
+    }
+
+    if(method.value === "card"){
+        window.location.href = "card.html";
+    }
+    else if(method.value === "paypal"){
+        window.location.href = "paypal.html";
+    }
+    else if(method.value === "cod"){
+        window.location.href = "cash.html"; // 👈 yaha change
+    }
+}
+</script>
+</body>
+</html>
