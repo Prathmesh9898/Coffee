@@ -162,7 +162,9 @@ body{
 
 .menu-item img{
     width:220px;
-    height:auto;
+    height:160px;
+    object-fit:cover;
+    border-radius:12px;
     margin-bottom:20px;
 }
 
@@ -249,15 +251,15 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="hot beverage2.png" alt="">
+    <img src="https://loremflickr.com/400/300/hot,coffee" alt="Hot Beverages">
     <h3>Hot Beverages</h3>
     <p>Wide range of Steaming hot coffee to make you fresh and light.</p>
 
     <h4 class="price">₹80.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('Hot Beverages', 80.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('Hot Beverages', 80.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -268,15 +270,15 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="cold beverage.png" alt="">
+    <img src="https://loremflickr.com/400/300/iced,coffee" alt="Cold Beverages">
     <h3>Cold Beverages</h3>
     <p>Creamy and frothy cold coffee to make you cool.</p>
 
     <h4 class="price">₹45.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('cold Beverages', 45.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('cold Beverages', 45.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -286,14 +288,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="refresh.png" alt="">
+    <img src="https://loremflickr.com/400/300/fruit,juice" alt="Refreshment">
     <h3>Refreshment</h3>
     <p>Fruit and icy refreshing drink to make feel refresh.</p>
     <h4 class="price">₹30.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('Refreshment', 30.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('Refreshment', 30.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -304,14 +306,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="burger and frenchfries.png" alt="">
+    <img src="https://loremflickr.com/400/300/burger,fries" alt="Burger and fries">
     <h3>Burger and fries</h3>
     <p>Quick bites with crispy fries and juicy burgers.</p>
     <h4 class="price">₹120.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('Burger and fries', 120.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('Burger and fries', 120.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -321,14 +323,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="desertdrink.png" alt="">
+    <img src="https://loremflickr.com/400/300/dessert" alt="Deserts">
     <h3>Deserts</h3>
     <p>Sweet and delicious desserts to complete your meal.</p>
     <h4 class="price">₹50.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('desertdrink', 50.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('desertdrink', 50.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -337,14 +339,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="combo.png" alt="">
+    <img src="https://loremflickr.com/400/300/combo,meal" alt="Special combo">
     <h3>Special combo</h3>
     <p>Healthy and tasty sandwiches for every mood.</p>
     <h4 class="price">₹110.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('Special combo', 110.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('Special combo', 110.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -353,14 +355,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="pizza.png" alt="">
+    <img src="https://loremflickr.com/400/300/pizza" alt="Pizza">
     <h3>pizza</h3>
     <p>Cheesy and delicious pizza with fresh toppings.</p>
     <h4 class="price">₹70.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('Pizza', 70.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('Pizza', 70.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -369,14 +371,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="sandwich.png" alt="">
+    <img src="https://loremflickr.com/400/300/sandwich" alt="Sandwiches">
     <h3>sandwiches</h3>
     <p>Fresh grilled sandwiches packed with tasty fillings.</p>
     <h4 class="price">₹65.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('sandwich', 65.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('sandwich', 65.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -386,14 +388,14 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="pasta.png" alt="">
+    <img src="https://loremflickr.com/400/300/pasta" alt="Pasta">
     <h3>Pasta</h3>
     <p>Creamy and flavorful pasta cooked with rich sauces.</p>
     <h4 class="price">₹55.00</h4>
 
     <div class="menu-buttons">
-        <button class="cart-btn" onclick="addToCart('pasta',55.00)">Add to Cart</button>
-                <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <button class="cart-btn" onclick="addToCart('pasta',55.00)">🛒 Add to Cart</button>
+                <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
 
     </div>
 </div>
@@ -403,15 +405,15 @@ if(!isLoggedIn){
         <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="icecream.png" alt="">
+    <img src="https://loremflickr.com/400/300/icecream" alt="Ice Cream">
     <h3>Ice Cream</h3>
     <p>Cold and sweet ice cream available in many flavors.</p>
         <h4 class="price">₹40.00</h4>
-        <div class="menu-buttons"></div>
-   <button class="cart-btn" onclick="addToCart('icecream',40.00)">Add to Cart</button>
+        <div class="menu-buttons">
+   <button class="cart-btn" onclick="addToCart('icecream',40.00)">🛒 Add to Cart</button>
 
-     <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
-
+     <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
+        </div>
 </div>
 
 <!-- Item 11 -->
@@ -419,14 +421,14 @@ if(!isLoggedIn){
             <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="donut.png" alt="">
+    <img src="https://loremflickr.com/400/300/donut" alt="Donuts">
     <h3>Donuts</h3>
     <p>Soft and fluffy donuts topped with chocolate glaze.</p>
     <h4 class="price">₹30.00</h4>
-        <div class="menu-buttons"></div>
-   <button class="cart-btn" onclick="addToCart('donuts',30.00)">Add to Cart</button>
-        <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
-
+        <div class="menu-buttons">
+   <button class="cart-btn" onclick="addToCart('donuts',30.00)">🛒 Add to Cart</button>
+        <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
+        </div>
 </div>
 
 <!-- Item 12 -->
@@ -434,15 +436,15 @@ if(!isLoggedIn){
     <div class="cart-box">
     <h2>Your Cart</h2><ul id="cart-items"></ul></div>
 
-    <img src="cake.png" alt="">
+    <img src="https://loremflickr.com/400/300/cake" alt="Cakes">
     <h3>Cakes</h3>
     <p>Fresh baked cakes perfect for every sweet craving.</p>
         <h4 class="price">₹350.00</h4>
 
-    <div class="menu-buttons"></div>
-   <button class="cart-btn" onclick="addToCart('cake',350.00)">Add to Cart</button>
-        <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
-
+    <div class="menu-buttons">
+   <button class="cart-btn" onclick="addToCart('cake',350.00)">🛒 Add to Cart</button>
+        <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
+        </div>
 </div>
     </div>
     
@@ -488,8 +490,8 @@ fetch("http://localhost:3000/menu")
                 <h4 class="price">₹${item.price}</h4>
 
                 <div class="menu-buttons">
-                    <button class="cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-                    <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+                    <button class="cart-btn" onclick="addToCart('${item.name}', ${item.price})">🛒 Add to Cart</button>
+                    <button class="order-btn" onclick="window.location.href='order.html'">🍽️ Order Now</button>
                 </div>
             </div>
         `;
