@@ -6,4 +6,4 @@ convenience, speed, and accessibility. This project aims to bridge the gap betwe
 modern customer expectations by delivering a fully functional online ordering system. 
 Best Coffee
 Make your day great with our special coffee!
-Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy.
+Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy....
