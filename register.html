@@ -87,7 +87,7 @@ button{
 <script>
 const SUPABASE_URL = "https://aepsevbjbtizvyuhdrqv.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlcHNldmJqYnRpenZ5dWhkcnF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMjUxMDgsImV4cCI6MjEwMDkwMTEwOH0.qtMSwKVup2sVKWfvtUmDmA-KesuC25uGoquTFCEBPrs";
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function registerUser(){
     let email = document.getElementById("email").value.toLowerCase();
@@ -103,7 +103,7 @@ async function registerUser(){
         return false;
     }
 
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await supabaseClient.auth.signUp({
         email: email,
         password: password,
         options: {
