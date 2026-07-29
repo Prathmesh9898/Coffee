@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coffee Login</title>
-
 <style>
 body{
     margin:0;
@@ -16,7 +15,6 @@ body{
     justify-content:center;
     align-items:center;
 }
-/* Login Box */
 .login-box{
     background: rgba(0,0,0,0.75);
     padding:45px 40px;
@@ -25,19 +23,15 @@ body{
     text-align:center;
     color:#fff;
     box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px); /* 🔥 glass effect */
+    backdrop-filter: blur(5px);
 }
-
 .login-box h2{
     margin-bottom:25px;
     font-size:22px;
 }
-
-/* Input fields */
 .input-box{
     margin:12px 0;
 }
-
 .input-box input{
     width:100%;
     padding:12px;
@@ -46,13 +40,9 @@ body{
     outline:none;
     font-size:14px;
 }
-
-/* 🔥 focus effect */
 .input-box input:focus{
     box-shadow:0 0 6px #c59d5f;
 }
-
-/* Button */
 button{
     width:100%;
     padding:12px;
@@ -65,85 +55,72 @@ button{
     transition:0.3s;
     margin-top:10px;
 }
-
 button:hover{
     background:#a67c3d;
-    transform: scale(1.03); /* 🔥 smooth hover */
+    transform: scale(1.03);
 }
-
-/* Extra text */
 .extra{
     margin-top:18px;
     font-size:14px;
 }
-
 .extra a{
     color:#c59d5f;
     text-decoration:none;
 }
-
 .extra a:hover{
     text-decoration:underline;
 }
 </style>
 </head>
-
 <body>
-
 <div class="login-box">
     <h2>☕ Coffee Login</h2>
     
-
-<form onsubmit="return loginUser()">
-                <div class="input-box">
-    <input type="text" id="username" placeholder="Username">
-</div>
-
-<div class="input-box">
+<form onsubmit="loginUser(event); return false;">
+    <div class="input-box">
+        <input type="email" id="email" placeholder="Email" required>
+    </div>
+    <div class="input-box">
         <input type="password" id="password" placeholder="Password" required>
         <span class="eye" onclick="togglePassword('password')">👁</span>
     </div>
-
-<button type="submit">Login</button>
-
-        <div class="extra">
-            <p>Don't have account? <a href="register.html">Sign Up</a></p>
-        </div>
-    </form>
+    <button type="submit">Login</button>
+    <div class="extra">
+        <p>Don't have account? <a href="register.html">Sign Up</a></p>
+    </div>
+</form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-function loginUser(){
+const SUPABASE_URL = "https://aepsevbjbtizvyuhdrqv.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlcHNldmJqYnRpenZ5dWhkcnF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMjUxMDgsImV4cCI6MjEwMDkwMTEwOH0.qtMSwKVup2sVKWfvtUmDmA-KesuC25uGoquTFCEBPrs";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username: document.getElementById("username").value,
-            password: document.getElementById("password").value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
+async function loginUser(event){
+    event.preventDefault();
 
-        if(data.status === "success"){
-            
-    alert("Login Successful ✅");
+    const email = document.getElementById("email").value.toLowerCase();
+    const password = document.getElementById("password").value;
 
-    // ✅ LOGIN SAVE karo
-    localStorage.setItem("isLoggedIn", "true");
-
-    // 🔥 redirect
-    window.location.href = "menu.html";
-
-} else {
-    alert(data.message);
-}
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
     });
 
+    if(error){
+        alert("Login failed: " + error.message);
+        return false;
+    }
+
+    alert("Login Successful ✅");
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "menu.html";
     return false;
-    
+}
+
+function togglePassword(id){
+    let input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
 }
 </script>
 </body>
