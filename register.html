@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coffee Register</title>
-
 <style>
 body{
     margin:0;
@@ -16,7 +15,6 @@ body{
     justify-content:center;
     align-items:center;
 }
-
 .register-box{
     background: rgba(0,0,0,0.8);
     padding:40px;
@@ -25,12 +23,10 @@ body{
     text-align:center;
     color:#fff;
 }
-
 .input-box{
     margin:12px 0;
     position:relative;
 }
-
 .input-box input{
     width:100%;
     padding:10px;
@@ -38,8 +34,6 @@ body{
     border-radius:8px;
     outline:none;
 }
-
-/* Eye icon */
 .eye{
     position:absolute;
     right:10px;
@@ -47,8 +41,6 @@ body{
     cursor:pointer;
     color:#000;
 }
-
-/* Button */
 button{
     width:100%;
     padding:10px;
@@ -58,7 +50,6 @@ button{
     color:#fff;
     cursor:pointer;
 }
-
 .error{
     color:red;
     font-size:13px;
@@ -66,90 +57,77 @@ button{
 }
 </style>
 </head>
-
 <body>
-
 <div class="register-box">
 <h2>☕ Coffee Register</h2>
-
 <form onsubmit="return registerUser()">
     
     <div class="input-box">
         <input type="text" id="full_name" placeholder="full_name" required>
     </div>
-
     <div class="input-box">
         <input type="email" id="email" placeholder="Email" required>
     </div>
-
     <div class="input-box">
         <input type="text" id="username" placeholder="Username" required>
     </div>
-
     <div class="input-box">
         <input type="password" id="password" placeholder="Password" required>
         <span class="eye" onclick="togglePassword('password')">👁</span>
     </div>
-
     <div class="input-box">
         <input type="password" id="confirm" placeholder="Confirm Password" required>
         <span class="eye" onclick="togglePassword('confirm')">👁</span>
     </div>
-
     <div class="error" id="errorMsg"></div>
-
 <button type="submit">Register</button>
 </form>
 </div>
-
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL = "https://aepsevbjbtizvyuhdrqv.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlcHNldmJqYnRpenZ5dWhkcnF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMjUxMDgsImV4cCI6MjEwMDkwMTEwOH0.qtMSwKVup2sVKWfvtUmDmA-KesuC25uGoquTFCEBPrs";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function registerUser(){
-    console.log("REGISTER CLICKED 🔥");
-
+async function registerUser(){
     let email = document.getElementById("email").value.toLowerCase();
     let password = document.getElementById("password").value;
     let confirm = document.getElementById("confirm").value;
 
-    // ✅ Only .com and .edu allowed (BEST METHOD)
     if(!email.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.(com|edu)$/)){
         alert("Only .com and .edu emails allowed ❌");
         return false;
     }
-
-    // Password match check
     if(password !== confirm){
         alert("Passwords do not match ❌");
         return false;
     }
 
-    fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: document.getElementById("full_name").value,
-            email: email,
-            username: document.getElementById("username").value,
-            password: password
-        })
-    })
-    .then(res => res.text())
-    .then(data => {
-        console.log(data);
-        alert(data);
-        window.location.href = "login.html";
+    const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                full_name: document.getElementById("full_name").value,
+                username: document.getElementById("username").value
+            }
+        }
     });
 
+    if(error){
+        alert("Error: " + error.message);
+        return false;
+    }
+
+    alert("Registered successfully! ✅");
+    window.location.href = "login.html";
     return false;
 }
+
 function togglePassword(id){
     let input = document.getElementById(id);
     input.type = input.type === "password" ? "text" : "password";
 }
 </script>
-
 </body>
 </html>
