@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu Section</title>
+<title>Musafir Café — Menu</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,12 +16,15 @@
 }
 
 body{
-    background:#1e1e1e;
+    background: radial-gradient(circle at 20% 20%, #3a0f0f 0%, #1c0808 60%, #120404 100%);
+    color:#f3e6d8;
 }
 
 .price{
-    color:#ff9f1c;
-    font-size:18px;
+    color:#e69747;
+    font-family:'Cormorant Garamond', serif;
+    font-size:20px;
+    font-weight:600;
     margin-top:10px;
 }
 
@@ -33,47 +36,53 @@ body{
 }
 
 .cart-btn{
-    background:#ff9f1c;
+    background:linear-gradient(135deg, #e69747, #c97a2e);
     border:none;
-    padding:8px 16px;
-    color:white;
+    padding:9px 18px;
+    color:#1c0808;
+    font-weight:500;
     border-radius:20px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .cart-btn:hover{
-    background:#e68900;
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(230,151,71,0.4);
 }
 
 .order-btn{
     background:transparent;
-    border:2px solid #ff9f1c;
-    padding:8px 16px;
-    color:#ff9f1c;
+    border:1px solid rgba(230,151,71,0.6);
+    padding:9px 18px;
+    color:#e8d9c8;
     border-radius:20px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .order-btn:hover{
-    background:#ff9f1c;
-    color:white;
+    background:#e69747;
+    color:#1c0808;
+    border-color:#e69747;
 }
 
 .cart-box{
     position:fixed;
     right:20px;
     top:100px;
-    width:120px;
-    height: 50px;
-    background:white;
-    color:black;
+    min-width:120px;
+    background:#f8ede0;
+    color:#3a0f0f;
     padding:15px;
     border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    z-index:5;
 }
 
 .cart-box h2{
-    font-size:18px;
+    font-family:'Playfair Display', serif;
+    font-size:17px;
     margin-bottom:10px;
 }
 
@@ -88,6 +97,9 @@ body{
 }
 /* -------- NAVBAR -------- */
 .navbar{
+    background:#1c0808;
+    border-bottom:1px solid rgba(230,151,71,0.25);
+    color:#f3e6d8;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -95,43 +107,14 @@ body{
 }
 
 .logo{
+    font-family:'Playfair Display', serif;
     font-size:24px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .logo span{
     margin-right:8px;
-}
-
-.nav-links{
-    list-style:none;
-    display:flex;
-    gap:40px;
-}
-
-.nav-links li a{
-    text-decoration:none;
-    color:white;
-    font-weight:400;
-    transition:0.3s;
-}
-
-.nav-links li a:hover{
-    color:#ffb347;
-}
-
-.navbar{
-    background:#803e3e;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 80px;
-}
-
-.logo{
-    font-size:22px;
-    font-weight:bold;
+    color:#e69747;
 }
 
 .nav-links{
@@ -140,17 +123,39 @@ body{
     gap:35px;
 }
 
-.nav-links li{
-    cursor:pointer;
+.nav-links li a{
+    text-decoration:none;
+    color:#e8d9c8;
+    font-weight:400;
+    transition:0.3s;
 }
 
-.nav-links li:hover{
-    color:#f4c430;
+.nav-links li a:hover{
+    color:#e69747;
 }
+
 /* Menu Section */
 .menu{
     padding:100px 8%;
-    background:#1e1e1e;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h4{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:#e69747;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.section-title h1{
+    font-family:'Playfair Display', serif;
+    font-size:38px;
+    color:#f8ede0;
 }
 
 .menu-container{
@@ -160,22 +165,37 @@ body{
     text-align:center;
 }
 
+.menu-item{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(230,151,71,0.15);
+    border-radius:16px;
+    padding:24px 20px;
+    transition:0.3s;
+}
+
+.menu-item:hover{
+    border-color:rgba(230,151,71,0.4);
+    transform:translateY(-4px);
+}
+
 .menu-item img{
     width:220px;
     height:160px;
     object-fit:cover;
     border-radius:12px;
     margin-bottom:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
 }
 
 .menu-item h3{
-    color:white;
+    font-family:'Playfair Display', serif;
+    color:#f8ede0;
     font-size:22px;
     margin-bottom:15px;
 }
 
 .menu-item p{
-    color:#bbb;
+    color:#c9b8a8;
     font-size:15px;
     line-height:1.6;
 }
@@ -195,23 +215,24 @@ body{
 .next-btn-container{
     display:flex;
     justify-content:center;
-    padding:20px 8%;
+    padding:20px 8% 60px;
 }
 
 .next-btn{
-    background:#5fee33;
-    color:white;
+    background:linear-gradient(135deg, #e69747, #c97a2e);
+    color:#1c0808;
     border:none;
-    padding:20px 30px;
+    padding:16px 34px;
     border-radius:25px;
     cursor:pointer;
-    font-size:18px;
+    font-size:16px;
+    font-weight:500;
     transition:0.3s;
 }
 
 .next-btn:hover{
-    background:#e68900;
-    transform: translateY(-2px); /* smooth effect */
+    transform: translateY(-2px);
+    box-shadow:0 10px 24px rgba(230,151,71,0.4);
 }
 </style>
 </head>
@@ -229,21 +250,23 @@ if(!isLoggedIn){
 
     <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">☕ Coffee</div>
+    <div class="logo"><span>☕</span>Musafir Café</div>
     <ul class="nav-links">
-        <li><a href="1.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="menu.html">Menu</a></li>
-                          <li><a href="testimonial.html">Testimonials</a></li>
-
+        <li><a href="testimonial.html">Testimonials</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </div>
 
 
 <section class="menu">
+    <div class="section-title">
+        <h4>Crafted with warmth</h4>
+        <h1>Our Menu</h1>
+    </div>
     <div class="menu-container" id="menu-container">
 
         <!--item1-->
