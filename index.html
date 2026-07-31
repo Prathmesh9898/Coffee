@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coffee Website</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<title>Musafir Café</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{
     margin:0;
@@ -15,188 +13,237 @@
     box-sizing:border-box;
     font-family: 'Poppins', sans-serif;
 }
-
 body{
-    background:#5b1a1a;
-    color:white;
+    background: radial-gradient(circle at 20% 20%, #3a0f0f 0%, #1c0808 60%, #120404 100%);
+    color:#f3e6d8;
+    overflow-x:hidden;
 }
-
+/* subtle candle-glow texture */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 30%, rgba(230,151,71,0.10), transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(230,151,71,0.08), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+}
 /* Navbar */
 .navbar{
+    position:relative;
+    z-index:2;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
+    padding:22px 8%;
+    border-bottom:1px solid rgba(230,151,71,0.25);
 }
-
 .logo{
-    font-size:24px;
-    font-weight:600;
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    color:#f3e6d8;
 }
-
 .logo span{
-    margin-right:8px;
+    margin-right:10px;
+    color:#e69747;
 }
-
 .nav-links{
     list-style:none;
     display:flex;
-    gap:40px;
+    align-items:center;
+    gap:36px;
 }
-
 .nav-links li a{
     text-decoration:none;
-    color:white;
+    color:#e8d9c8;
     font-weight:400;
+    font-size:15px;
+    letter-spacing:0.3px;
+    transition:0.3s;
+    position:relative;
+}
+.nav-links li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:1px;
+    background:#e69747;
+    transition:width 0.3s ease;
+}
+.nav-links li a:hover{
+    color:#e69747;
+}
+.nav-links li a:hover::after{
+    width:100%;
+}
+.nav-links li button{
+    background:transparent;
+    border:1px solid rgba(230,151,71,0.5);
+    color:#e8d9c8;
+    padding:8px 18px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:14px;
     transition:0.3s;
 }
-
-.nav-links li a:hover{
-    color:#ffb347;
+.nav-links li button:hover{
+    background:#e69747;
+    color:#1c0808;
+    border-color:#e69747;
 }
-
 /* Hero Section */
 .hero{
+    position:relative;
+    z-index:1;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:60px 8%;
-    min-height:90vh;
+    min-height:88vh;
+    gap:40px;
 }
-
 .hero-text{
-    max-width:550px;
+    max-width:560px;
 }
-
 .hero-text h4{
-    color:#ff9f1c;
-    font-size:22px;
-    margin-bottom:15px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:#e69747;
+    font-size:24px;
+    margin-bottom:18px;
+    letter-spacing:0.5px;
 }
-
 .hero-text h1{
-    font-size:42px;
+    font-family:'Playfair Display', serif;
+    font-size:46px;
     font-weight:700;
-    margin-bottom:20px;
+    margin-bottom:22px;
     line-height:1.3;
+    color:#f8ede0;
 }
-
 .hero-text p{
-    font-size:16px;
-    margin-bottom:30px;
-    color:#f5f5f5;
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:34px;
+    color:#e8d9c8;
 }
-
 .buttons{
     display:flex;
     gap:20px;
 }
-
 .btn{
-    padding:12px 28px;
+    padding:13px 32px;
     border-radius:30px;
     font-weight:500;
+    font-size:15px;
     cursor:pointer;
     border:none;
     transition:0.3s;
+    letter-spacing:0.3px;
 }
-
 .btn-primary{
-    background:#ff9f1c;
-    color:white;
+    background:linear-gradient(135deg, #e69747, #c97a2e);
+    color:#1c0808;
+    box-shadow:0 6px 20px rgba(230,151,71,0.35);
 }
-
 .btn-primary:hover{
-    background:#e68900;
+    transform:translateY(-2px);
+    box-shadow:0 10px 26px rgba(230,151,71,0.5);
 }
-
-.btn-outline{
-    background:transparent;
-    border:2px solid white;
-    color:white;
-}
-
-.btn-outline:hover{
-    background:white;
-    color:#5b1a1a;
-}
-
 /* Hero Image */
-.hero-image img{
-    width:450px;
-    max-width:100%;
+.hero-image{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-
+.hero-image::before{
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    background:radial-gradient(circle, rgba(230,151,71,0.35), transparent 70%);
+    filter:blur(10px);
+    z-index:0;
+}
+.hero-image img{
+    position:relative;
+    z-index:1;
+    width:420px;
+    max-width:100%;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+/* Decorative divider */
+.divider{
+    text-align:center;
+    color:#e69747;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    letter-spacing:2px;
+    padding-bottom:30px;
+    position:relative;
+    z-index:1;
+}
 /* Responsive */
 @media(max-width:900px){
     .hero{
         flex-direction:column;
         text-align:center;
     }
-
     .hero-image{
         margin-top:40px;
+    }
+    .buttons{
+        justify-content:center;
     }
 }
 </style>
 </head>
-
 <body>
-
 <!-- Navbar -->
 <nav class="navbar">
     <div class="logo">
-        ☕ Coffee
+        <span>☕</span>Musafir Café
     </div>
-
     <ul class="nav-links">
-    <li><a href="1.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-
     <li><a href="menu.html" onclick="return checkLogin()">Menu</a></li>
     <li><a href="testimonial.html" onclick="return checkLogin()">Testimonials</a></li>
     <li><a href="gallery.html" onclick="return checkLogin()">Gallery</a></li>
     <li><a href="contact.html" onclick="return checkLogin()">Contact</a></li>
-
     <li><button onclick="logout()">Logout</button></li>
 </ul>
 </nav>
-
 <!-- Hero Section -->
 <section class="hero">
-
     <div class="hero-text">
-        <h4>Best Coffee</h4>
-        <h1>Make your day great with our special coffee!</h1>
+        <h4>A cup for every wandering soul</h4>
+        <h1>Come home to warmth, one cup at a time.</h1>
         <p>
-            Welcome to our coffee paradise, where every bean tells
-            a story and every cup sparks joy.
+            Musafir means traveler — and every traveler needs a place to pause.
+            Step into Musafir Café, where the coffee is warm, the light is soft,
+            and every visit feels like coming home.
         </p>
-
-        
+        <div class="buttons">
             <a href="login.html">
-    <button class="btn btn-primary">Login</button>
-    <button class="order-btn" onclick="window.location.href='login.html'">
-</button>
+                <button class="btn btn-primary">Login</button>
             </a>
-
-    
-</div>        </div>
+        </div>
     </div>
-
     <div class="hero-image">
         <!-- Replace this image link with your coffee splash image -->
         <img src="coffee.png" alt="Coffee Cup">
     </div>
-
 </section>
-
-<script>
-function logout(){
-    localStorage.removeItem("isLoggedIn");
-    window.location.href = "login.html";
-}
-</script>
+<p class="divider">— a home for wandering hearts —</p>
 <script>
 function logout(){
     localStorage.removeItem("isLoggedIn");
@@ -206,4 +253,3 @@ function logout(){
 </script>
 </body>
 </html>
-
